@@ -17,16 +17,15 @@ def exhaustive_algorithm(data):
     # print(i_matrix)
 
     for object in range(number_of_objects):
-        for atribute in range(number_of_atributes):
-            for object2 in range(object+1, number_of_objects):
+        for object2 in range(object + 1, number_of_objects):
+            for atribute in range(number_of_atributes):
                 is_equal = 1
                 # print("object:" + str(object+1) + " " + "object2:" + str(object2+1))
                 if data[object][decision_index] == data[object2][decision_index]:
                     # print("Is equal")
-                    for i in range(number_of_atributes):
-                        if data[object][i] == data[object2][i]:
+                        if data[object][atribute] == data[object2][atribute]:
                             is_equal = 1
-                            i_matrix[object][object2] += "a"+str(atribute)
+                            i_matrix[object][object2] += "a" + str(atribute+1)
                         else:
                             is_equal = 0
                 else:
@@ -40,3 +39,4 @@ def exhaustive_algorithm(data):
 data = load("values.txt")
 exhaustive_algorithm(data)
 print(exhaustive_algorithm(data))
+
